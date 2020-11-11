@@ -13,7 +13,7 @@
 
 <body>
 
-    <div>
+    <div class="header-juego">
         <h1>MatchADAs</h1>
         <div class="tabla-puntuacion">
             <i class="fas fa-info-circle"></i>
@@ -22,10 +22,10 @@
 
     </div>
 
-    <div>
+    <div class="body-juego">
         <div class="contenedor-grilla">
-
         </div>
+
         <div class="reloj">
             <i class="fas fa-hourglass-half"></i>
             <p class="tiempo"> 00:30</p>
@@ -33,8 +33,79 @@
     </div>
 
 
+    <div class="modal-nuevo-juego hidden">
+        <h2 class="titulo-modal">Nuevo Juego</h2>
+
+        <p>Selecciona una Dificultad</p>
+
+        <div class="acciones-nuevo-juego">
+            <button class="btn-principal">Fácil</button>
+            <button class="btn-principal">Intermedio</button>
+            <button class="btn-principal">Difícil</button>
+        </div>
+
+
+    </div>
+
+    <div class="modal-reinciar-juego hidden">
+        <h2 class="titulo-modal">Reiniciar juego?</h2>
+
+        <p>Perderas todo tu puntaje acumulado</p>
+
+        <div class="acciones-reiniciar-juego">
+            <button class="btn-secundario">Cancelar</button>
+            <button id class="btn-principal">Nuevo Juego</button>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="modal-juego-terminado hidden">
+        <h2 class="titulo-modal">Juego Terminado</h2>
+
+        <p>Puntaje final: <span class="puntuacion-final">0</span> </p>
+
+        <div class="acciones-nuevo-juego">
+            <button id="btn-nuevo-juego" class="btn-principal">Nuevo Juego</button>
+            <button id="btn-reiniciar" class="btn-principal">Reiniciar</button>
+        </div>
+
+
+    </div>
+
+    <div class="modal-bienvenida hidden">
+        <h2 class="titulo-modal">Bienvenida!</h2>
+
+        <p>En MatchADAS tu objetivo es o más items del mismo tipo, ya sea en la fila o columna. Para eso, seleciona un
+            item y a continuación un item adyacente para intercambiarlos de lugar.
+        </p>
+        <p>
+            Si se forma un grupo, esos ítems se eleminarán y ganarás puntos, Sigue armando grupos de 3 o más antes de
+            que se acabe el tiempo!
+        </p>
+
+        <div class="controles-juego">
+            <h4>Controles</h4>
+            <p>
+                Click isquierdo Seleccion
+                Enter o espacio: Selección
+                Flechas o WASD: movimiento e intercambio.
+            </p>
+        </div>
+
+        <div class="acciones-bienvenida ">
+            <button class="btn-principal">A Jugar</button>
+
+        </div>
+
+
+    </div>
+
+
     <div class="overlay hidden">
-        hola
+
     </div>
     <script src="main.js"></script>
 </body>
