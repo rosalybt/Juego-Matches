@@ -16,8 +16,14 @@
     <div class="header-juego">
         <h1>MatchADAs</h1>
         <div class="tabla-puntuacion">
-            <i class="fas fa-info-circle"></i>
-            <i class="fas fa-redo-alt"></i>
+            <button>
+                <i class="fas fa-info-circle"></i>
+            </button>
+
+            <button id="btn-reiniciar">
+                <i class="fas fa-redo-alt"></i>
+            </button>
+
         </div>
 
     </div>
@@ -33,49 +39,47 @@
     </div>
 
 
-    <div class="modal-nuevo-juego hidden">
+    <div class="modal-nuevo-juego  style-modal">
         <h2 class="titulo-modal">Nuevo Juego</h2>
 
         <p>Selecciona una Dificultad</p>
 
         <div class="acciones-nuevo-juego">
-            <button class="btn-principal">Fácil</button>
-            <button class="btn-principal">Intermedio</button>
-            <button class="btn-principal">Difícil</button>
+            <button id="btn-facil" class="btn-principal">Fácil</button>
+            <button id="btn-medio" class="btn-principal">Intermedio</button>
+            <button id="btn-dificil" class="btn-principal">Difícil</button>
         </div>
 
 
     </div>
 
-    <div class="modal-reinciar-juego hidden">
+    <div class="modal-reinciar-juego style-modal hidden">
         <h2 class="titulo-modal">Reiniciar juego?</h2>
 
         <p>Perderas todo tu puntaje acumulado</p>
 
         <div class="acciones-reiniciar-juego">
-            <button class="btn-secundario">Cancelar</button>
-            <button id class="btn-principal">Nuevo Juego</button>
-
+            <button id="btn-cancelar" class="btn-secundario">Cancelar</button>
+            <button id="btn-reiniciar-juego" class="btn-principal">Nuevo Juego</button>
         </div>
-
 
     </div>
 
 
-    <div class="modal-juego-terminado hidden">
+    <div class="modal-juego-terminado  style-modal hidden">
         <h2 class="titulo-modal">Juego Terminado</h2>
 
         <p>Puntaje final: <span class="puntuacion-final">0</span> </p>
 
         <div class="acciones-nuevo-juego">
             <button id="btn-nuevo-juego" class="btn-principal">Nuevo Juego</button>
-            <button id="btn-reiniciar" class="btn-principal">Reiniciar</button>
+            <button id="btn-reiniciar-nuevo" class="btn-principal">Reiniciar</button>
         </div>
 
 
     </div>
 
-    <div class="modal-bienvenida hidden">
+    <div class="modal-bienvenida style-modal hidden">
         <h2 class="titulo-modal">Bienvenida!</h2>
 
         <p>En MatchADAS tu objetivo es o más items del mismo tipo, ya sea en la fila o columna. Para eso, seleciona un
@@ -104,9 +108,9 @@
     </div>
 
 
-    <div class="overlay hidden">
-
+    <div class="overlay">
     </div>
+
     <script src="main.js"></script>
 </body>
 
