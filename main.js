@@ -7,6 +7,8 @@ const botonReiniciar = document.getElementById('btn-reiniciar')
 const botonReiniciarNuevo = document.getElementById('btn-reiniciar-juego')
 const botonCancelar = document.getElementById('btn-cancelar')
 
+const buscarMatches = document.getElementById('buscar-match')
+
 let nivelDelJuego = ''
 const overlay = document.querySelector('.overlay')
 
@@ -53,8 +55,10 @@ const crearGrilla = (filas, columnas, array) => {
             matriz[i][j] = obtenerFrutaAlAzar(array);
 
             grilla.innerHTML += `<div class="grilla" data-fila=${i} data-columna=${j}>
-                              ${[obtenerFrutaAlAzar(array)]}
+                              ${matriz[i][j]}
                               </div>`;
+
+
         }
     }
     return grilla;
@@ -90,6 +94,56 @@ const reiniciarJuego = () => {
     }
 
 };
+
+const colorearMatches = (x, y, orientacion) => {
+
+
+    if (orientacion === 'vertical') {
+        for (let k = 0; k < 3; k++) {
+            const divVertical = document.querySelector(`div[data-fila="${x + k}"][data-columna="${y}"]`);
+            divVertical.style.backgroundColor = "green";
+        }
+
+    } else {
+        for (let k = 0; k < 3; k++) {
+            const divHorizontal = document.querySelector(`div[data-fila="${x}"][data-columna="${y + k}"]`);
+            divHorizontal.style.backgroundColor = "green";
+        }
+    }
+
+};
+
+const matchesVerticales = () => {
+    for (let i = 0; i < matriz.length; i++) {
+        for (let j = 0; j < matriz[i].length; j++) {
+
+            if (
+                matriz[i + 1] &&
+                matriz[i + 2] &&
+                matriz[i][j] === matriz[i + 1][j] &&
+                matriz[i][j] === matriz[i + 2][j]
+            ) {
+                colorearMatches(i, j, 'vertical')
+            }
+        }
+    }
+};
+
+const matchesHorizontales = () => {
+    for (let i = 0; i < matriz.length; i++) {
+        for (let j = 0; j < matriz[i].length; j++) {
+
+            if (
+                matriz[i][j] === matriz[i][j + 1] &&
+                matriz[i][j] === matriz[i][j + 2]
+            ) {
+                colorearMatches(i, j, 'horizontal')
+            }
+        }
+    }
+};
+
+
 
 botonCancelar.onclick = () => {
     hide(overlay)
@@ -127,5 +181,11 @@ botonDificil.onclick = () => {
     nivelDelJuego = 'dificil'
 }
 
+
+
+buscarMatches.onclick = () => {
+    matchesHorizontales();
+    matchesVerticales();
+}
 
 
