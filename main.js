@@ -95,23 +95,25 @@ const reiniciarJuego = () => {
 
 };
 
-const colorearMatches = (x, y, orientacion) => {
+// const colorearMatches = (x, y, orientacion) => {
 
 
-    if (orientacion === 'vertical') {
-        for (let k = 0; k < 3; k++) {
-            const divVertical = document.querySelector(`div[data-fila="${x + k}"][data-columna="${y}"]`);
-            divVertical.style.backgroundColor = "green";
-        }
+//     if (orientacion === 'vertical') {
+//         for (let k = 0; k < 3; k++) {
+//             const divVertical = document.querySelector(`div[data-fila="${x + k}"][data-columna="${y}"]`);
+//             divVertical.style.backgroundColor = "green";
+//         }
 
-    } else {
-        for (let k = 0; k < 3; k++) {
-            const divHorizontal = document.querySelector(`div[data-fila="${x}"][data-columna="${y + k}"]`);
-            divHorizontal.style.backgroundColor = "green";
-        }
-    }
+//     } else {
+//         for (let k = 0; k < 3; k++) {
+//             const divHorizontal = document.querySelector(`div[data-fila="${x}"][data-columna="${y + k}"]`);
+//             divHorizontal.style.backgroundColor = "green";
+//         }
+//     }
 
-};
+// };
+
+
 
 const matchesVerticales = () => {
     for (let i = 0; i < matriz.length; i++) {
@@ -123,10 +125,12 @@ const matchesVerticales = () => {
                 matriz[i][j] === matriz[i + 1][j] &&
                 matriz[i][j] === matriz[i + 2][j]
             ) {
-                colorearMatches(i, j, 'vertical')
+                return true
             }
         }
     }
+
+    return false
 };
 
 const matchesHorizontales = () => {
@@ -137,13 +141,41 @@ const matchesHorizontales = () => {
                 matriz[i][j] === matriz[i][j + 1] &&
                 matriz[i][j] === matriz[i][j + 2]
             ) {
-                colorearMatches(i, j, 'horizontal')
+                return true
             }
         }
     }
+    return false
 };
 
 
+const hayMatches = () => {
+    if (matchesHorizontales() || matchesVerticales()) {
+        return true
+    }
+    else {
+        alert('no hay matches')
+        return false
+    }
+
+}
+
+
+do {
+
+    crearGrilla(4, 4, items)
+} while (hayMatches())
+
+
+const cuadrado1 = document.querySelector(`div[data-fila='0'][data-columna='0']`)
+const cuadrado2 = document.querySelector(`div[data-fila='0'][data-columna='1']`)
+const cuadrado3 = document.querySelector(`div[data-fila='1'][data-columna='0']`)
+const cuadrado4 = document.querySelector(`div[data-fila='1'][data-columna='1']`)
+const sonAdyacentes = () => {
+
+    // if()
+
+}
 
 botonCancelar.onclick = () => {
     hide(overlay)
@@ -184,8 +216,7 @@ botonDificil.onclick = () => {
 
 
 buscarMatches.onclick = () => {
-    matchesHorizontales();
-    matchesVerticales();
+    hayMatches()
 }
 
 
